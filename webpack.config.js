@@ -15,6 +15,7 @@ module.exports = {
       chunkFilename: options.env === 'dev' ? `chunks/[name].js?v=[chunkhash:6]` : `s/[name].js?v=[chunkhash:6]_${v.localVersion}`,
       clean: true, // 每次构建前清空输出文件夹
   },
+  devtool: 'source-map',
   module: {//loader css jpg。。
     rules: [
       // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
@@ -45,6 +46,7 @@ module.exports = {
   },
   stats: 'verbose',
   mode: 'development',
+  recordsPath: path.join(__dirname, 'records.json'),
   optimization: {
     splitChunks: {
       // chunks: 'async',

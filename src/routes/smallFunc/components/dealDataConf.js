@@ -1,3 +1,6 @@
+import * as vlq from 'vlq';
+import * as sourceMap from 'source-map';
+
 
 /**
  * @description: del html tag
@@ -53,6 +56,47 @@ export const filterHtmlTag = (str) => {
   return str.replace(reg, '');
 }
 
+export const toVLQ = (str) => {
+  let encoded = vlq.encode(Number(str));
+  console.log(str, encoded, 'toVLQ')
+  return encoded;
+  // console.log('Encoded VLQ:', encoded); // 输出编码后的VLQ值
+  // let decoded = vlq.decode(encoded);
+  // console.log('Decoded Number:', decoded); // 输出解码后的原始数字‌:ml-citation{ref="1" data="citationList"}  
+}
+
+export const vlqToNum = (str) => {
+  let encoded = vlq.decode(str);
+  console.log(str, encoded, 'vlqToNum')
+  return encoded;
+  // console.log('Encoded VLQ:', encoded); // 输出编码后的VLQ值
+  // let decoded = vlq.decode(encoded);
+  // console.log('Decoded Number:', decoded); // 输出解码后的原始数字‌:ml-citation{ref="1" data="citationList"}  
+}
+
+export const resolveMappings = (mappings) => {
+ 
+  // 创建一个新的SourceMapConsumer实例
+  const consumer = new sourceMap.SourceMapConsumer(mappings);
+  
+  // 要查找的生成代码中的位置（比如第5个字符）
+  const generatedPosition = {
+    line: 0,
+    column: 5
+  };
+ 
+  // 将生成代码中的位置转换为原始代码中的位置
+  const originalPosition = consumer.originalPositionFor(generatedPosition);
+  
+  console.log(originalPosition); // 输出原始代码中的位置信息
+  
+  // 记得在完成后释放SourceMapConsumer实例
+  consumer.destroy();
+
+  return originalPosition;
+}
+
+
 export default {
   handleDelHtmlTag,
   previewHtml,
@@ -60,5 +104,8 @@ export default {
   JSONFormat,
   filterHtmlTag,
   filterSpace,
-  filterReturn
+  filterReturn,
+  toVLQ,
+  vlqToNum,
+  resolveMappings,
 };

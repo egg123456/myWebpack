@@ -28,6 +28,8 @@ const Login = () => {
     })
   };
 
+  console.log('123', 'login')
+
   return (
     <div className="align-center-point">
     <Form

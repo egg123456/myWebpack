@@ -11,7 +11,9 @@ const dealMethods = [
   { label: 'filterHtmlTag', value: 'filterHtmlTag', key: 'filterHtmlTag' },
   { label: 'filterSpace', value: 'filterSpace', key: 'filterSpace' },
   { label: 'filterReturn', value: 'filterReturn', key: 'filterReturn' },
-  
+  { label: 'toVLQ', value: 'toVLQ', key: 'toVLQ' },
+  { label: 'vlqToNum', value: 'vlqToNum', key: 'vlqToNum' },
+  { label: 'resolveMappings', value: 'resolveMappings', key: 'resolveMappings' },
 ]
 
 const DealData = () => {
@@ -19,10 +21,20 @@ const DealData = () => {
 
   const handleSelectChange = (val) => {
     const oData = form.getFieldValue('originData');
-    console.log(val, oData, 'oData');
+    console.log(val, oData, 'oData', dealDataConf[val]);
 
     if (!val || !oData) return;
     form.setFieldValue('resultData', dealDataConf[val]?.(oData) || '');
+  }
+
+  const handleBlur = (e) => {
+    const val = e.target.value;
+    const func = form.getFieldValue('method');
+
+    console.log('handleBlur', val, func)
+
+    if (!val || !func) return;
+    form.setFieldValue('resultData', dealDataConf[func]?.(val) || '');
   }
 
   const [num, setNum] = useState();
@@ -46,8 +58,8 @@ const DealData = () => {
     <FormGrid
       form={form}
       items={[
-        { label: 'originData', field: 'originData', render: () => <Input.TextArea /> },
-        { label: 'method', render: () => <Select options={dealMethods} onChange={handleSelectChange} /> },
+        { label: 'originData', field: 'originData', render: () => <Input.TextArea onBlur={handleBlur} /> },
+        { label: 'method', field: 'method', render: () => <Select options={dealMethods} onChange={handleSelectChange} /> },
         { label: 'resultData', field: 'resultData', render: () => <Input.TextArea rows={10} /> },
       ]}
       initialValues={{ lowerCaseMoney: 1688.99 }}
