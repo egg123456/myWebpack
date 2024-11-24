@@ -94,4 +94,9 @@ export const menuItems = [
     icon: <CodeOutlined />,
     label: 'algorithm',
   },
+  {
+    icon: <VideoCameraOutlined />,
+    label: 'invoiceManage',
+    key: 'invoiceManage/list',
+  },
 ];

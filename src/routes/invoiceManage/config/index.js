@@ -1,5 +1,6 @@
 import { Divider } from 'antd';
 import React from 'react';
+import TableMergeFields from '../../../components/TableMergeFields';
 
 export const dateTimeFormat = 'YYYY-MM-DD HH:mm:ss';
 
@@ -21,21 +22,17 @@ export const getColumns = ({
     dataIndex: 'remark',
   },
   {
-    title: '发票代码',
+    title: '发票信息',
     dataIndex: 'code',
-  },
-  {
-    title: '发票号码',
-    dataIndex: 'num',
-  },  
-  {
-    title: '开票日期',
-    dataIndex: 'date',
-  },
-  {
-    title: '校验码',
-    dataIndex: 'checkNum',
-  },
+    render: (val, record) => {
+      return <TableMergeFields fieldInfos={[
+        { label: '发票代码', value: val },
+        { label: '发票号码', value: record.num },
+        { label: '开票日期', value: record.date },
+        { label: '校验码', value: record.checkNum },
+      ]} />
+    }
+  }, 
   {
     title: '金额',
     dataIndex: 'money',
