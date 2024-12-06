@@ -1,7 +1,7 @@
 import React from 'react';
 import List from '../../components/List';
 import { fetchCeremonyRecord } from './services';
-import { getCustomItem, columns } from './config';
+import { getCustomItem, getColumns } from './config';
 
 const Ceremony = () => {
   const [listData, setListData] = React.useState({});
@@ -15,7 +15,7 @@ const Ceremony = () => {
     <List 
       customItem={getCustomItem()}
       table={{
-        columns,
+        columns: getColumns({}),
         dataSource: listData.data,
       }}
       onSearch={handleSearch} 

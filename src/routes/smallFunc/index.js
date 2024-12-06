@@ -8,6 +8,10 @@ import OCR from './components/OCR';
 import Code from './components/Code';
 import QrCodeScanner from '../../components/QrCodeScanner';
 import { createDatabaseTableApi, deleteDatabaseTableApi } from '../overview/services';
+import XLSX, { readFile } from 'xlsx';
+import ReadXLSX from '../../components/ReadXLSX';
+import EditableTable from '../../components/EditableTable';
+import SQlTableDrawer from './components/SQlTableDrawer';
 
 
 const SmallFunc = () => {
@@ -62,9 +66,11 @@ const SmallFunc = () => {
       ]
     };
 
-    createDatabaseTableApi(payload).then((res) => {
-      console.log(res, 'res');
-    })
+    SQlTableDrawer.show({})
+
+    // createDatabaseTableApi(payload).then((res) => {
+    //   console.log(res, 'res');
+    // })
 
   }
 
@@ -78,6 +84,8 @@ const SmallFunc = () => {
   
   return (
     <div>
+      <Button onClick={() => ReadXLSX.show()}>click</Button>
+      {/* <EditableTable /> */}
       <Card title="databaseTable" extra={<a href="#">More</a>} style={{ width: 300 }}>
         <p><Button onClick={handleAdd}>add</Button></p>
         <p><Button onClick={handleDelete}>delete</Button></p>

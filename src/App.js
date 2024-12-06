@@ -99,7 +99,7 @@ const router = createBrowserRouter([
     element: <Login />,
   },
 ], 
-{ basename: '/view' }
+{ basename: '/' + VIEW_PREFIX }
 );
 
 

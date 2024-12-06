@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import L7 from '@antv/l7';
+// import L7 from '@antv/l7';
 
 const Map = () => {
   const init = () => {
@@ -12,15 +12,15 @@ const Map = () => {
       return;
     }
 
-    var scene = new L7.Scene({
-      id: 'map',
-      mapStyle: 'light', // 样式URL
-      center: [120.19382669582967, 30.258134],
-      pitch: 0,
-      zoom: 4,
-      zoomControl: false,
-      scaleControl: false
-    });
+    // var scene = new L7.Scene({
+    //   id: 'map',
+    //   mapStyle: 'light', // 样式URL
+    //   center: [120.19382669582967, 30.258134],
+    //   pitch: 0,
+    //   zoom: 4,
+    //   zoomControl: false,
+    //   scaleControl: false
+    // });
     // scene.on('loaded', function() {
     //   var colors = ["#FFF5B8", "#FFDC7D", "#FFAB5C", "#F27049", "#D42F31", "#730D1C"];
     //   $.getJSON('https://gw.alipayobjects.com/os/rmsportal/JToMOWvicvJOISZFCkEI.json', function(city) {

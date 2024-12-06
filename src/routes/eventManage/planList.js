@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import List from '../../components/List';
-import { deleteEventApi, fetchPlanList } from './services/plan';
+import { deletePlanApi, fetchPlanList } from './services/plan';
 import { getCustomItem, getColumns } from './config/planList';
 import { Button, message } from 'antd';
 import EditPlanModal from './components/EditPlanModal';
@@ -30,7 +30,7 @@ const PlanList = () => {
   }
 
   const handleDeleteClick = (record) => {
-    deleteEventApi(record).then(() => {
+    deletePlanApi(record).then(() => {
       message.info('删除成功');
     });
   }

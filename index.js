@@ -1,5 +1,8 @@
 const webpack = require('webpack');
 const conf = require('./webpack.config')
+
+console.log('conf', conf.output);
+
 // 引入minimist库
 const minimist = require('minimist');
  
