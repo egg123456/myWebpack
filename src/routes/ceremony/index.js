@@ -3,12 +3,17 @@ import List from '../../components/List';
 import { fetchCeremonyRecord } from './services';
 import { getCustomItem, getColumns } from './config';
 
+const defaultListData = {
+  data: [],
+  total: 0,
+}
+
 const Ceremony = () => {
-  const [listData, setListData] = React.useState({});
+  const [listData, setListData] = React.useState(defaultListData);
   const handleSearch = (params) => {
     fetchCeremonyRecord(params).then(res => {
       console.log(res)
-      setListData({ data: res.data.result });
+      setListData(res.result || defaultListData);
     })
   }
   return (

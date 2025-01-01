@@ -6,7 +6,7 @@ import { addCeremonyBookApi, editCeremonyBookApi, fetchCeremonyBookDetail } from
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import { dateTimeFormat, dealDateTimeToDayjs, toDayJs } from '../../../../utils/FormatUtils';
-import solarLunar from 'solarLunar';
+import solarLunar from 'solarlunar';
 
 const EditCeremonyBookModal = ({ 
   visible, onCancel, operateType = 'add', record = {}, onOk,

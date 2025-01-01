@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node ./index.js",
-    "start": "webpack serve --open",
+    "start": "webpack serve",
     "build": "node ./index.js --watch=false"
   },
   "author": "",
@@ -31,11 +31,11 @@
     "react-qr-reader": "^3.0.0-beta-1",
     "react-router-dom": "^6.13.0",
     "solarlunar": "^2.0.7",
-    "source-map": "^0.7.4",
     "style-loader": "^3.3.3",
     "tesseract.js": "^4.1.2",
     "vlq": "^2.0.4",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",

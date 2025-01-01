@@ -3,8 +3,9 @@ import React, { useEffect } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import ErrorPage from './common/error-page';
 import Layout from './Layout';
+import Login from './common/login';
 
-const Login = React.lazy(() => import(/* webpackPreload: true */ './common/login'));
+// const Login = React.lazy(() => import(/* webpackPreload: true */ './common/login'));
 const Overview = React.lazy(() => import(/* webpackPreload: true */ './routes/overview/index'));
 const Ceremony = React.lazy(() => import(/* webpackPreload: true */ './routes/ceremony/index'));
 const CeremonyBooks = React.lazy(() => import(/* webpackPreload: true */ './routes/ceremony/ceremonyBooks'));
@@ -24,7 +25,7 @@ console.log(r.keys(), 'rrrr')
 const routes = [];
 r.keys().forEach(key => {   //r.keys()返回匹配成功模块的名字组成的数组
   let list = r(key); // r(key)返回的是一个模块,这个模块才是真正我们需要的
-  console.log(list, 'mmmm');
+  // console.log(list, 'mmmm');
   list.forEach(el => {
     const basePath = key.slice(1).replace('route.js', '')
     const Comp = React.lazy(() => import(/* webpackPreload: true */ './routes' + basePath + el.view))
@@ -101,6 +102,8 @@ const router = createBrowserRouter([
 ], 
 { basename: '/' + VIEW_PREFIX }
 );
+
+console.log(router, 'router')
 
 
 function App() {

@@ -33,6 +33,7 @@ const MyLayout = () => {
   const handleLogout = () => {
     sessionStorage.removeItem('token');
     document.cookie = `token=${''};`
+    localStorage.setItem('xxx_skipUrl', location.href);
     // document.cookie = '';
     // docCookies.removeItem('token', '/view', 'localhost')
     message.info('退出成功');

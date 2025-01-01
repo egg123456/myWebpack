@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Tabs } from 'antd';
+import { Button, Card, Space, Tabs } from 'antd';
 import RMBInCapital from './components/RMBInCapital';
 import GenerateQRcode from './components/GenerateQRcode';
 import ExportCsv from './components/ExportCsv';
@@ -84,13 +84,18 @@ const SmallFunc = () => {
   
   return (
     <div>
-      <Button onClick={() => ReadXLSX.show()}>click</Button>
+      <Space size={14}>
       {/* <EditableTable /> */}
-      <Card title="databaseTable" extra={<a href="#">More</a>} style={{ width: 300 }}>
-        <p><Button onClick={handleAdd}>add</Button></p>
-        <p><Button onClick={handleDelete}>delete</Button></p>
-      </Card>
-      <Button onClick={() => QrCodeScanner.show()} >sao</Button>
+        <Card title="databaseTable" extra={<a href="#">More</a>} style={{ width: 300, display: "inline-block" }}>
+          <p><Button onClick={handleAdd}>add 1</Button></p>
+          <p><Button onClick={handleDelete}>delete</Button></p>
+        </Card>
+        <Card title="other" extra={<a href="#">More</a>} style={{ width: 300, display: "inline-block" }}>
+          <p><Button onClick={() => QrCodeScanner.show()} >sao</Button></p>
+          <p><Button onClick={() => ReadXLSX.show()}>click egg</Button></p>
+        </Card>
+      </Space>
+
       <Tabs defaultActiveKey="6" items={items} onChange={onChange} />
     </div>
   );

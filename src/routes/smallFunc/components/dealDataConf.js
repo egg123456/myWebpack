@@ -1,5 +1,5 @@
 import * as vlq from 'vlq';
-import * as sourceMap from 'source-map';
+// import * as sourceMap from 'source-map';
 
 
 /**
@@ -75,6 +75,7 @@ export const vlqToNum = (str) => {
 }
 
 export const resolveMappings = (mappings) => {
+  return 1;
  
   // 创建一个新的SourceMapConsumer实例
   const consumer = new sourceMap.SourceMapConsumer(mappings);
